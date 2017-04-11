@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <div class="form-group">
+        <label>Message</label>
+        <input id="message" class="form-control" />
+    </div>
+    <button class="send-message btn btn-primary">Send Message</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particle-api-js/6.4.3/particle.min.js"></script>
+<script>
+var particle = new Particle();
+var deviceId = '33001d000347353137323334';
+var token = 'a0d4f88678cb7e8a04a936bb7ec9fab60b46fe61';
+jQuery('.send-message').click(function() {
+    var message = jQuery('#message').val();
+    particle.callFunction({name: 'text', argument: message, deviceId: deviceId, auth: token});
+});
+</script>
+</body>
+</html>
